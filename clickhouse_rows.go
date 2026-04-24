@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"io"
 
-	"github.com/ClickHouse/clickhouse-go/v2/lib/proto"
+	"github.com/Altinity/clickhouse-go/v2/lib/proto"
 )
 
 type rows struct {

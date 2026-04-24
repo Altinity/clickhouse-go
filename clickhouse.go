@@ -12,10 +12,10 @@ import (
 
 	_ "time/tzdata"
 
-	"github.com/ClickHouse/clickhouse-go/v2/contributors"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/column"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/driver"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/proto"
+	"github.com/Altinity/clickhouse-go/v2/contributors"
+	"github.com/Altinity/clickhouse-go/v2/lib/column"
+	"github.com/Altinity/clickhouse-go/v2/lib/driver"
+	"github.com/Altinity/clickhouse-go/v2/lib/proto"
 )
 
 type Conn = driver.Conn

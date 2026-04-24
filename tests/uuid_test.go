@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/ClickHouse/clickhouse-go/v2/lib/column"
+	"github.com/Altinity/clickhouse-go/v2/lib/column"
 	"github.com/stretchr/testify/require"
 
-	"github.com/ClickHouse/clickhouse-go/v2"
+	"github.com/Altinity/clickhouse-go/v2"
 	"github.com/google/uuid"
 
 	"github.com/stretchr/testify/assert"

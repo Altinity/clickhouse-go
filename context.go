@@ -6,7 +6,7 @@ import (
 	"slices"
 	"time"
 
-	"github.com/ClickHouse/clickhouse-go/v2/ext"
+	"github.com/Altinity/clickhouse-go/v2/ext"
 	"go.opentelemetry.io/otel/trace"
 )
 

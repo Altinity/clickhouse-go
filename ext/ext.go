@@ -2,8 +2,8 @@ package ext
 
 import (
 	"fmt"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/column"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/proto"
+	"github.com/Altinity/clickhouse-go/v2/lib/column"
+	"github.com/Altinity/clickhouse-go/v2/lib/proto"
 	"strings"
 )
 

@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ClickHouse/clickhouse-go/v2"
-	clickhouse_tests "github.com/ClickHouse/clickhouse-go/v2/tests"
-	clickhouse_std_tests "github.com/ClickHouse/clickhouse-go/v2/tests/std"
+	"github.com/Altinity/clickhouse-go/v2"
+	clickhouse_tests "github.com/Altinity/clickhouse-go/v2/tests"
+	clickhouse_std_tests "github.com/Altinity/clickhouse-go/v2/tests/std"
 	"github.com/google/uuid"
 	"github.com/shopspring/decimal"
 	"github.com/stretchr/testify/require"

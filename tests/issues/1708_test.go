@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/ClickHouse/clickhouse-go/v2"
-	clickhousetests "github.com/ClickHouse/clickhouse-go/v2/tests"
+	"github.com/Altinity/clickhouse-go/v2"
+	clickhousetests "github.com/Altinity/clickhouse-go/v2/tests"
 	"github.com/stretchr/testify/require"
 )
 

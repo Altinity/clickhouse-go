@@ -3,11 +3,11 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	clickhouse_tests "github.com/ClickHouse/clickhouse-go/v2/tests/std"
+	clickhouse_tests "github.com/Altinity/clickhouse-go/v2/tests/std"
 	"log"
 	"reflect"
 
-	_ "github.com/ClickHouse/clickhouse-go/v2"
+	_ "github.com/Altinity/clickhouse-go/v2"
 )
 
 type DatabaseFrame struct {

@@ -8,8 +8,8 @@ import (
 	"strings"
 
 	"github.com/ClickHouse/ch-go/proto"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/binary"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/chcol"
+	"github.com/Altinity/clickhouse-go/v2/lib/binary"
+	"github.com/Altinity/clickhouse-go/v2/lib/chcol"
 )
 
 const JSONDeprecatedObjectSerializationVersion uint64 = 0

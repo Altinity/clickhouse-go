@@ -3,13 +3,13 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	clickhouse_tests "github.com/ClickHouse/clickhouse-go/v2/tests/std"
+	clickhouse_tests "github.com/Altinity/clickhouse-go/v2/tests/std"
 	"log"
 	"net/http"
 	_ "net/http/pprof"
 	"time"
 
-	"github.com/ClickHouse/clickhouse-go/v2"
+	"github.com/Altinity/clickhouse-go/v2"
 )
 
 var conn *sql.DB

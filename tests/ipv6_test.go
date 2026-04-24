@@ -9,10 +9,10 @@ import (
 	"testing"
 
 	"github.com/ClickHouse/ch-go/proto"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/column"
+	"github.com/Altinity/clickhouse-go/v2/lib/column"
 	"github.com/stretchr/testify/require"
 
-	"github.com/ClickHouse/clickhouse-go/v2"
+	"github.com/Altinity/clickhouse-go/v2"
 	"github.com/stretchr/testify/assert"
 )
 

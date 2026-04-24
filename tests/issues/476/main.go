@@ -6,7 +6,7 @@ import (
 	"log"
 	"reflect"
 
-	_ "github.com/ClickHouse/clickhouse-go/v2"
+	_ "github.com/Altinity/clickhouse-go/v2"
 )
 
 func main() {

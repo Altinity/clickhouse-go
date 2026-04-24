@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/ClickHouse/clickhouse-go/v2/lib/column"
-	"github.com/ClickHouse/clickhouse-go/v2/tests"
+	"github.com/Altinity/clickhouse-go/v2/lib/column"
+	"github.com/Altinity/clickhouse-go/v2/tests"
 	"github.com/stretchr/testify/require"
 )
 

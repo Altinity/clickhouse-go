@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ClickHouse/clickhouse-go/v2/internal/circular"
+	"github.com/Altinity/clickhouse-go/v2/internal/circular"
 )
 
 var errQueueEmpty = errors.New("clickhouse: connection pool queue is empty")

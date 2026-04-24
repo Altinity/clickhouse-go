@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ClickHouse/clickhouse-go/v2/lib/column"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/driver"
+	"github.com/Altinity/clickhouse-go/v2/lib/column"
+	"github.com/Altinity/clickhouse-go/v2/lib/driver"
 )
 
 var (
