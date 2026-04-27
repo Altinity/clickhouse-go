@@ -5,7 +5,7 @@ import (
 	"crypto/tls"
 	"errors"
 	"fmt"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/column"
+	"github.com/Altinity/clickhouse-go/v2/lib/column"
 	"io"
 	"log/slog"
 	"net"
@@ -13,11 +13,11 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/ClickHouse/clickhouse-go/v2/resources"
+	"github.com/Altinity/clickhouse-go/v2/resources"
 
 	"github.com/ClickHouse/ch-go/compress"
 	chproto "github.com/ClickHouse/ch-go/proto"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/proto"
+	"github.com/Altinity/clickhouse-go/v2/lib/proto"
 )
 
 func dial(ctx context.Context, addr string, num int, opt *Options) (*connect, error) {
@@ -135,10 +135,25 @@ type connect struct {
 	maxCompressionBuffer int
 	readerMutex          sync.Mutex
 	closeMutex           sync.Mutex
+	// clusterSalt is the 32-byte salt sent during an interserver handshake
+	// and reused when signing every query on this connection. Empty when
+	// Options.Cluster.Secret is not configured.
+	clusterSalt string
 }
 
 func (c *connect) connID() int {
 	return c.id
+}
+
+// effectiveInitialUser returns the user to put on the outgoing
+// `ClientInfo.initial_user` slot. The per-query override wins; otherwise we
+// fall back to Auth.Username so interserver-mode connections execute as the
+// configured default user when no per-query user is set.
+func (c *connect) effectiveInitialUser(queryUser string) string {
+	if queryUser != "" {
+		return queryUser
+	}
+	return c.opt.Auth.Username
 }
 
 func (c *connect) getLogger() *slog.Logger {

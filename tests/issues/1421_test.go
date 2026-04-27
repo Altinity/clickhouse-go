@@ -7,8 +7,8 @@ import (
 	"syscall"
 	"testing"
 
-	"github.com/ClickHouse/clickhouse-go/v2/lib/driver"
-	"github.com/ClickHouse/clickhouse-go/v2/tests"
+	"github.com/Altinity/clickhouse-go/v2/lib/driver"
+	"github.com/Altinity/clickhouse-go/v2/tests"
 	"github.com/docker/docker/api/types/container"
 	"github.com/stretchr/testify/require"
 	"github.com/testcontainers/testcontainers-go"

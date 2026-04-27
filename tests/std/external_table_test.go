@@ -3,14 +3,14 @@ package std
 import (
 	"context"
 	"fmt"
-	clickhouse_tests "github.com/ClickHouse/clickhouse-go/v2/tests"
+	clickhouse_tests "github.com/Altinity/clickhouse-go/v2/tests"
 	"github.com/stretchr/testify/require"
 	"strconv"
 	"testing"
 	"time"
 
-	"github.com/ClickHouse/clickhouse-go/v2"
-	"github.com/ClickHouse/clickhouse-go/v2/ext"
+	"github.com/Altinity/clickhouse-go/v2"
+	"github.com/Altinity/clickhouse-go/v2/ext"
 	"github.com/stretchr/testify/assert"
 )
 

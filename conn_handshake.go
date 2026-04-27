@@ -1,13 +1,19 @@
 package clickhouse
 
 import (
+	"crypto/rand"
 	_ "embed"
 	"fmt"
 	"log/slog"
 	"time"
 
-	"github.com/ClickHouse/clickhouse-go/v2/lib/proto"
+	"github.com/Altinity/clickhouse-go/v2/lib/proto"
 )
+
+// interserverSaltLen matches the cap enforced by ClickHouse
+// `TCPHandler::processClusterNameAndSalt` which calls
+// `readStringBinary(salt, *in, 32)`.
+const interserverSaltLen = 32
 
 func (c *connect) handshake(auth Auth) error {
 	defer c.buffer.Reset()
@@ -28,7 +34,18 @@ func (c *connect) handshake(auth Auth) error {
 			ClientVersion:   proto.Version{ClientVersionMajor, ClientVersionMinor, ClientVersionPatch}, //nolint:govet
 		}
 		handshake.Encode(c.buffer)
-		{
+		if c.opt.Cluster.Secret != "" {
+			salt := make([]byte, interserverSaltLen)
+			if _, err := rand.Read(salt); err != nil {
+				return fmt.Errorf("handshake: failed to generate interserver salt: %w", err)
+			}
+			c.clusterSalt = string(salt)
+			c.buffer.PutString(auth.Database)
+			c.buffer.PutString(proto.UserInterserverMarker)
+			c.buffer.PutString("")
+			c.buffer.PutString(c.opt.Cluster.Name)
+			c.buffer.PutString(c.clusterSalt)
+		} else {
 			c.buffer.PutString(auth.Database)
 			c.buffer.PutString(auth.Username)
 			c.buffer.PutString(auth.Password)

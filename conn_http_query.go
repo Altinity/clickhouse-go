@@ -10,7 +10,7 @@ import (
 	"log/slog"
 
 	chproto "github.com/ClickHouse/ch-go/proto"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/proto"
+	"github.com/Altinity/clickhouse-go/v2/lib/proto"
 )
 
 // capturingReader wraps a reader and captures all data that passes through it

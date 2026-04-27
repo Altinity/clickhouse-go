@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ClickHouse/clickhouse-go/v2"
-	"github.com/ClickHouse/clickhouse-go/v2/tests"
+	"github.com/Altinity/clickhouse-go/v2"
+	"github.com/Altinity/clickhouse-go/v2/tests"
 	"github.com/stretchr/testify/require"
 )
 

@@ -1,8 +1,8 @@
 package clickhouse
 
 import (
-	"github.com/ClickHouse/clickhouse-go/v2/lib/column"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/proto"
+	"github.com/Altinity/clickhouse-go/v2/lib/column"
+	"github.com/Altinity/clickhouse-go/v2/lib/proto"
 	"github.com/stretchr/testify/assert"
 	"strconv"
 	"testing"

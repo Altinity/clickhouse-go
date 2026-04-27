@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	_ "github.com/ClickHouse/clickhouse-go/v2"
+	_ "github.com/Altinity/clickhouse-go/v2"
 )
 
 func benchmarkRead(conn *sql.DB) error {

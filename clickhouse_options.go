@@ -14,7 +14,7 @@ import (
 	"time"
 
 	"github.com/ClickHouse/ch-go/compress"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/churl"
+	"github.com/Altinity/clickhouse-go/v2/lib/churl"
 )
 
 type CompressionMethod byte
@@ -65,6 +65,21 @@ type Auth struct { // has_control_character
 
 	Username string
 	Password string
+}
+
+// ClusterCredentials configures client-side interserver authentication.
+// When Secret is non-empty, the client authenticates as a trusted cluster
+// peer using the shared cluster secret instead of a user password, and the
+// server executes queries as the InitialUser set on the connection's Auth
+// or overridden per-query via WithInitialUser.
+//
+// See https://clickhouse.com/docs/operations/server-configuration-parameters/settings#remote_servers
+// and the interserver secret protocol handled in `src/Server/TCPHandler.cpp`.
+type ClusterCredentials struct {
+	// Name is the cluster name configured in ClickHouse remote_servers.
+	Name string
+	// Secret is the shared cluster secret. Empty disables interserver mode.
+	Secret string
 }
 
 type Compression struct {
@@ -121,6 +136,10 @@ type Options struct {
 	TLS          *tls.Config
 	Addr         []string
 	Auth         Auth
+	// Cluster enables interserver-secret authentication. When Cluster.Secret
+	// is set, Auth.Username/Password are ignored during the handshake and the
+	// client impersonates a trusted cluster peer. Queries run as InitialUser.
+	Cluster      ClusterCredentials
 	DialContext  func(ctx context.Context, addr string) (net.Conn, error)
 	DialStrategy func(ctx context.Context, connID int, options *Options, dial Dial) (DialResult, error)
 

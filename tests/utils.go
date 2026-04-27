@@ -22,9 +22,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ClickHouse/clickhouse-go/v2"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/driver"
-	"github.com/ClickHouse/clickhouse-go/v2/lib/proto"
+	"github.com/Altinity/clickhouse-go/v2"
+	"github.com/Altinity/clickhouse-go/v2/lib/driver"
+	"github.com/Altinity/clickhouse-go/v2/lib/proto"
 	"github.com/docker/docker/api/types/container"
 	"github.com/docker/go-units"
 	"github.com/google/uuid"

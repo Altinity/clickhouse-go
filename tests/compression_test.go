@@ -3,7 +3,7 @@ package tests
 import (
 	"context"
 	"github.com/ClickHouse/ch-go/compress"
-	"github.com/ClickHouse/clickhouse-go/v2"
+	"github.com/Altinity/clickhouse-go/v2"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"

@@ -6,7 +6,7 @@ import (
 	"slices"
 	"time"
 
-	"github.com/ClickHouse/clickhouse-go/v2/ext"
+	"github.com/Altinity/clickhouse-go/v2/ext"
 	"go.opentelemetry.io/otel/trace"
 )
 
@@ -39,11 +39,12 @@ type (
 		wait bool
 	}
 	QueryOptions struct {
-		span     trace.SpanContext
-		async    AsyncOptions
-		queryID  string
-		quotaKey string
-		jwt      string
+		span        trace.SpanContext
+		async       AsyncOptions
+		queryID     string
+		quotaKey    string
+		jwt         string
+		initialUser string
 		events   struct {
 			logs          func(*Log)
 			progress      func(*Progress)
@@ -93,6 +94,18 @@ func WithQuotaKey(quotaKey string) QueryOption {
 func WithJWT(jwt string) QueryOption {
 	return func(o *QueryOptions) error {
 		o.jwt = jwt
+		return nil
+	}
+}
+
+// WithInitialUser sets the `initial_user` sent with the query. When the
+// connection is configured with a cluster interserver secret, the server
+// executes the query as this user without a password check. Without an
+// interserver secret this only sets the `initial_user` ClientInfo field
+// visible in system tables like `system.query_log`.
+func WithInitialUser(user string) QueryOption {
+	return func(o *QueryOptions) error {
+		o.initialUser = user
 		return nil
 	}
 }
@@ -321,6 +334,7 @@ func (q *QueryOptions) clone() QueryOptions {
 		async:               q.async,
 		queryID:             q.queryID,
 		quotaKey:            q.quotaKey,
+		initialUser:         q.initialUser,
 		events:              q.events,
 		settings:            nil,
 		parameters:          nil,

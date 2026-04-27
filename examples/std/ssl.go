@@ -8,7 +8,7 @@ import (
 	"os"
 	"path"
 
-	"github.com/ClickHouse/clickhouse-go/v2"
+	"github.com/Altinity/clickhouse-go/v2"
 )
 
 func ConnectSSL() error {
